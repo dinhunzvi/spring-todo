@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/todos")
 @CrossOrigin("*")
@@ -34,4 +36,13 @@ public class TodoController {
 
     }
 
+    // build get all todos REST API
+    @GetMapping
+    public ResponseEntity<List<TodoDto>> getTodos() {
+        List<TodoDto> todos = todoService.getAllTodos();
+
+        // return ResponseEntity.ok(todos); alternative way of returning list of todos
+
+        return new ResponseEntity<>(todos, HttpStatus.OK);
+    }
 }
