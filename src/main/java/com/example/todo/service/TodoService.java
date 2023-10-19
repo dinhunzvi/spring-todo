@@ -1,6 +1,7 @@
 package com.example.todo.service;
 
 import com.example.todo.dto.TodoDto;
+import com.example.todo.entity.Todo;
 
 import java.util.List;
 
@@ -13,4 +14,10 @@ public interface TodoService {
     List<TodoDto> getAllTodos();
 
     TodoDto updateTodo(Long id, TodoDto todoDto);
+
+    void deleteTodo(Long id);
+
+    TodoDto completeTodo(Long id);
+
+    TodoDto incompleteTodo(Long id);
 }
