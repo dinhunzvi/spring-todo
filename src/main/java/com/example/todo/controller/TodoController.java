@@ -73,11 +73,12 @@ public class TodoController {
     }
 
     // build incomplete todo REST API
-    @PatchMapping("{id}")
-    public ResponseEntity<TodoDto> incompleteTodo(@PathVariable("id") Long todoId) {
+    @PatchMapping("{id}/incomplete")
+    public ResponseEntity<TodoDto> closeTodo(@PathVariable("id") Long todoId) {
         TodoDto updatedTodo = todoService.incompleteTodo(todoId);
 
         return ResponseEntity.ok(updatedTodo);
 
     }
+
 }
